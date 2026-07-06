@@ -1,0 +1,595 @@
+/* ===================================
+   CSS RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ===================================
+   ROOT VARIABLES
+=================================== */
+
+:root{
+
+    --background:#FFFDFB;
+    --secondary:#FDECEF;
+    --accent:#F8C8DC;
+    --gold:#D4AF37;
+    --text:#6B4F5B;
+
+}
+
+/* ===================================
+   BODY
+=================================== */
+
+body{
+
+    background: linear-gradient(
+        180deg,
+        #FAD7E3 0%,
+        #F8C8DC 50%,
+        #F6D6E3 100%
+    );
+
+    color: var(--text);
+
+    font-family: "Poppins", sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+/* ===================================
+   MAIN APP CONTAINER
+=================================== */
+
+#app{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    min-height:100vh;
+
+}
+/* ===================================
+   FADE IN ANIMATION
+=================================== */
+
+@keyframes fadeIn {
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+/* ===================================
+   HERO SECTION
+=================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    animation:fadeIn 2s ease;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+/* Intro Text */
+
+.intro-text{
+
+    font-size: 1rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 8px;
+
+    color: #6B4F5B;
+
+    margin-bottom: 45px;
+
+    font-weight: 500;
+
+}
+
+/* Main Heading */
+
+.hero h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:7rem;
+
+    color: #C99700;
+
+    font-weight:400;
+
+    line-height:0.95;
+
+    text-shadow:
+        0 2px 0 #fff,
+        0 5px 18px rgba(212,175,55,.35),
+        0 10px 30px rgba(212,175,55,.15);
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+/* Subtitle */
+
+.subtitle{
+
+    font-size: 1.35rem;
+
+    line-height: 2;
+
+    color: #6B4F5B;
+
+    max-width: 600px;
+
+    margin-top: 30px;
+
+    font-weight: 500;
+
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+
+@media (max-width:768px){
+
+    .hero h1{
+
+        font-size:3.5rem;
+
+    }
+
+    .intro-text,
+    .subtitle{
+
+        font-size:1rem;
+
+    }
+
+}
+/* ===================================
+   PETALS CONTAINER
+=================================== */
+
+.petals{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+/* ===================================
+   BACKGROUND GLOW
+=================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:-20%;
+
+    left:-20%;
+
+    width:140%;
+
+    height:140%;
+
+    background:
+    radial-gradient(circle at top left,#FDECEF 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#FFF3E8 0%,transparent 45%);
+
+    z-index:-2;
+
+}
+/* ===================================
+   FLOAT
+=================================== */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+/* ===================================
+   DIVIDER
+=================================== */
+
+.divider{
+
+    width:120px;
+
+    height:2px;
+
+    background:var(--gold);
+
+    margin:25px auto;
+
+    opacity:.5;
+
+}
+.hero h1 span{
+
+    display:inline-block;
+
+    animation:pulse 2s infinite;
+
+}
+.hero{
+
+    position:relative;
+
+    width:min(900px,90%);
+
+    margin:auto;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:40px;
+
+    padding:70px 50px;
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.08),
+
+        inset 0 1px rgba(255,255,255,.8);
+
+}
+/* ===================================
+   GIFT CONTAINER
+=================================== */
+
+ 
+
+/* ===================================
+   GIFT BOX
+=================================== */
+
+.gift-box{
+    position:relative;
+    width:220px;
+    height:220px;
+    cursor:pointer;
+}
+.gift-container{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:60px;
+
+    animation:floatGift 3s ease-in-out infinite;
+
+}
+
+/* Gift Base */
+
+.gift-base{
+    position:absolute;
+    bottom:0;
+    width:220px;
+    height:150px;
+    background:#F8BFD3;
+    border-radius:0 0 18px 18px;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+    overflow:visible;
+}
+
+/* Gift Lid */
+.gift-lid{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:220px;
+    height:75px;
+
+    background:#F3AFC6;
+
+    border-radius:18px;
+
+    z-index:5;
+
+    transition:.8s ease;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+.gift-box.open .gift-lid{
+    transform: translateY(-120px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gift-box.open .envelope{
+    transform:
+        translateX(-50%)
+        translateY(-120px);
+
+    opacity:1;
+}
+
+.gift-box.open .letter{
+
+    transform:
+        translate(-50%,-260px)
+        scale(1);
+
+    opacity:1;
+}
+
+/* ===================================
+   RIBBONS
+=================================== */
+
+.ribbon-vertical{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:22px;
+    height:100%;
+    background:#D4AF37;
+}
+
+.ribbon-horizontal{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:100%;
+    height:22px;
+    background:#D4AF37;
+}
+
+/* ===================================
+   BOW
+=================================== */
+
+.bow{
+    position:absolute;
+    width:42px;
+    height:42px;
+    border:10px solid #D4AF37;
+    border-radius:50%;
+    top:-20px;
+}
+
+.bow-left{
+    left:74px;
+}
+
+.bow-right{
+    right:74px;
+}
+
+/* ===================================
+   ENVELOPE
+=================================== */
+
+.envelope{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:60px;
+    opacity:0;
+    transition:1s ease;
+    z-index:1;
+}
+
+/* ===================================
+   HOVER
+=================================== */
+
+.gift-box:hover{
+    filter:drop-shadow(0 0 25px rgba(255,215,120,.8));
+}
+
+/* ===================================
+   OPEN ANIMATION
+=================================== */
+
+.gift-box.open .gift-lid{
+    transform:translateY(-90px) rotate(-15deg);
+}
+
+.gift-box.open .envelope{
+    bottom:150px;
+    opacity:1;
+}
+
+/* ===================================
+   FLOAT
+=================================== */
+
+@keyframes floatGift{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+.scene{
+    display:none;
+}
+
+.scene.active{
+    display:block;
+}
+
+.hidden{
+    display:none !important;
+}
+.gift-box.open{
+    transform: scale(1.05);
+    transition: 0.6s ease;
+}
+
+.gift-box.open .gift-base{
+    filter: brightness(1.1);
+}
+/* ===============================
+   LETTER
+================================= */
+
+.letter{
+
+    position:absolute;
+    left:50%;
+    top:60px;
+
+    width:650px;
+    max-width:90vw;
+
+    background:linear-gradient(
+        180deg,
+        #FDECEF 0%,
+        #FAD7E3 100%
+    );
+
+    border:3px solid #D4AF37;
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18);
+
+    transform:translate(-50%,120px) scale(.2);
+
+    opacity:0;
+
+    transition:1.2s ease;
+
+    text-align:center;
+
+    z-index:100;
+
+}
+
+.letter h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:4rem;
+
+    color:#C99700;
+
+    margin-bottom:25px;
+
+    font-weight:400;
+
+}
+
+.letter p{
+
+    font-size:1.15rem;
+
+    color:#6B4F5B;
+
+    line-height:2;
+
+    margin:18px 0;
+
+    font-weight:400;
+
+}
+
+/* Show the letter when the gift opens */
+
+.gift-box.open .letter{
+    transform:translate(-50%,-230px) scale(1);
+    opacity:1;
+}
+.petal {
+    position: fixed;
+    top: -10px;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.8;
+
+    animation: fall 6s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
